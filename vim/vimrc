@@ -1,0 +1,83 @@
+
+" Plugins {{{
+
+" Auto-download Plug if it's missing
+if empty(glob('~/.vim/autoload/plug.vim'))
+  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
+
+call plug#begin('~/.vim/plug')
+
+" Language support for pretty much everything (full list here: https://github.com/sheerun/vim-polyglot)
+Plug 'sheerun/vim-polyglot'
+
+" 24bit colorscheme
+Plug 'jacoborus/tender.vim'
+
+" A better statusline
+Plug 'vim-airline/vim-airline'
+
+" Insert/delete brackets, parens or quotes in pair
+Plug 'jiangmiao/auto-pairs'
+
+" FZF vim integration
+Plug '~/.fzf'
+Plug 'junegunn/fzf.vim'
+
+" Display Git diff in the sign column
+Plug 'airblade/vim-gitgutter'
+
+
+" Adds icons for Airline's statusline and tabline
+Plug 'ryanoasis/vim-devicons'
+
+" Git plugin
+Plug 'tpope/vim-fugitive'
+
+call plug#end()
+
+" Colors and fonts {{{
+
+" Tell Vim 256 colors are supported
+set t_Co=256
+
+" Display in UTF-8
+set encoding=utf-8
+
+" Enable termguicolors
+if has('termguicolors')
+  set termguicolors
+endif
+
+" Set Vim-specific sequences for RGB colors
+if exists('&t_8f') && exists('&t_8b')
+  let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+  let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
+endif
+
+" Color scheme / theme
+colorscheme tender
+set background=dark
+
+" Show line numbers, except for special filetypes
+if index(['undotree', 'diff', 'gitcommit'], &ft) < 0
+  set number
+  " Show relative line numbers in normal mode
+  augroup numbertoggle
+    autocmd! * <buffer>
+    autocmd BufEnter,FocusGained,InsertLeave <buffer> set relativenumber
+    autocmd BufLeave,FocusLost,InsertEnter   <buffer> set norelativenumber
+    "autocmd BufEnter,FocusGained,InsertLeave * call SetRelNumber(1)
+    "autocmd BufLeave,FocusLost,InsertEnter   * call SetRelNumber(0)
+  augroup END
+endif
+
+" Enable syntax highlighting
+syntax on
+
+
+
+
+
