@@ -4,12 +4,7 @@
 
 Install the required packages
 
-* zsh
-* tmux
-* curl
-* vim
-* git
-* alacritty
+`zsh tmux curl vim git alacritty fzf`
 
 Clone the repository
 
