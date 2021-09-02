@@ -9,7 +9,7 @@ fi
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-export ZSH="/home/tvapalo/.oh-my-zsh"
+export ZSH="/home/toni/.oh-my-zsh"
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
@@ -118,9 +118,10 @@ if which nvim &> /dev/null; then
   export EDITOR=/bin/nvim
 fi
 
-# sources for fzf
-source /usr/share/fzf/key-bindings.zsh
-source /usr/share/fzf/completion.zsh
+if [ $USER = "toni" ]; then
+  alias ssh='TERM=xterm-256color ssh'
+fi
+
 # Powerlevel10k prompt
 source ~/powerlevel10k/powerlevel10k.zsh-theme
 
@@ -128,18 +129,20 @@ source ~/powerlevel10k/powerlevel10k.zsh-theme
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 # Ruby environment configuration
-export PATH="$HOME/.rbenv/bin:$PATH"
-eval export PATH="/home/tvapalo/.rbenv/shims:${PATH}"
-export RBENV_SHELL=zsh
-source '/home/tvapalo/.rbenv/libexec/../completions/rbenv.zsh'
-command rbenv rehash 2>/dev/null
-rbenv() {
-  local command
-  command="${1:-}"
-  if [ "$#" -gt 0 ]; then
-    shift
-  fi
 
+if [ $USER = "tvapalo" ]; then
+
+  export PATH="$HOME/.rbenv/bin:$PATH"
+  eval export PATH="/home/tvapalo/.rbenv/shims:${PATH}"
+  export RBENV_SHELL=zsh
+  source '~/.rbenv/libexec/../completions/rbenv.zsh'
+  command rbenv rehash 2>/dev/null
+  rbenv() {
+    local command
+    command="${1:-}"
+    if [ "$#" -gt 0 ]; then
+      shift
+    fi
   case "$command" in
   rehash|shell)
     eval "$(rbenv "sh-$command" "$@")";;
@@ -147,6 +150,9 @@ rbenv() {
     command rbenv "$command" "$@";;
   esac
 }
+fi
 
 # Highlite plugin source
 source ~/highlite/highlite.plugin.zsh
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
