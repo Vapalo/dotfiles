@@ -12,6 +12,11 @@
     ~/.config/nvim/init.vim:
         path: nvim/init.vim
         create: true
+    ~/.fzf: ~
+    ~/.config/systemd/user/ssh-agent.service:
+        path: systemd/ssh-agent.service
+        create: true
 
 - shell:
     - [git submodule update --init --recursive, Installing submodules]
+    - [~/.fzf/install --completion --key-bindings --no-update-rc --no-bash, Installing fzf]
