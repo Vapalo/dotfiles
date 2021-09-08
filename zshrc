@@ -9,7 +9,7 @@ fi
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-export ZSH="/home/toni/.oh-my-zsh"
+export ZSH=$HOME/.oh-my-zsh
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
@@ -85,28 +85,40 @@ colored-man-pages
 
 source $ZSH/oh-my-zsh.sh
 
-# User configuration
+# Enable fzf if it's installed
+if [ -f ~/.fzf.zsh ]; then
+  # Load FZF
+  source ~/.fzf.zsh
 
-# export MANPATH="/usr/local/man:$MANPATH"
+  # Show preview window when running Alt+C to change directory
+  export FZF_ALT_C_OPTS="--preview 'tree -C {} | head -100'"
 
-# You may need to manually set your language environment
-# export LANG=en_US.UTF-8
+  # Load FZF ZSH tab completion plugin if it exists
+  # It adds FZF to all tab completions overriding the default menu
+  FZF_TAB_COMPLETION_PATH=~/.fzf-tab-completion/zsh/fzf-zsh-completion.sh
+  if [ -f $FZF_TAB_COMPLETION_PATH ]; then
+    source $FZF_TAB_COMPLETION_PATH
+    zstyle ':completion:*' fzf-search-display true
+  fi
 
-# Preferred editor for local and remote sessions
-# if [[ -n $SSH_CONNECTION ]]; then
-#   export EDITOR='vim'
-# else
-#   export EDITOR='mvim'
-# fi
+  _fzf_comprun() {
+    local command=$1
+    shift
 
-# Compilation flags
-# export ARCHFLAGS="-arch x86_64"
+    case "$command" in
+      cd) fzf "$@" --preview 'tree -C {} | head -200' ;;
+      export|unset) fzf "$@" --preview "eval 'echo \$'{}" ;;
+      *)  fzf "$@" ;;
+    esac
+  }
 
-# Set personal aliases, overriding those provided by oh-my-zsh libs,
-# plugins, and themes. Aliases can be placed here, though oh-my-zsh
-# users are encouraged to define aliases within the ZSH_CUSTOM folder.
-# For a full list of active aliases, run `alias`.
-#
+  # Run `fzf_apropos` to search available commands/descriptions and display their man pages
+  function fzf_apropos() {
+    apropos '' | fzf --preview-window=up:50% --preview 'echo {} | cut -f 1 -d " " | xargs man' | cut -f 1 -d " "
+  }
+
+fi
+
 # Example aliases
 alias zshconfig="vim ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
@@ -155,4 +167,3 @@ fi
 # Highlite plugin source
 source ~/highlite/highlite.plugin.zsh
 
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

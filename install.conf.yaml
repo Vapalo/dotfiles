@@ -13,6 +13,7 @@
         path: nvim/init.vim
         create: true
     ~/.fzf: ~
+    ~/.fzf-tab-completion: 'fzf-tab-completion/'
     ~/.config/systemd/user/ssh-agent.service:
         path: systemd/ssh-agent.service
         create: true
