@@ -147,7 +147,7 @@ if [ $USER = "tvapalo" ]; then
   export PATH="$HOME/.rbenv/bin:$PATH"
   eval export PATH="/home/tvapalo/.rbenv/shims:${PATH}"
   export RBENV_SHELL=zsh
-  source '~/.rbenv/libexec/../completions/rbenv.zsh'
+  source $HOME/.rbenv/libexec/../completions/rbenv.zsh
   command rbenv rehash 2>/dev/null
   rbenv() {
     local command
