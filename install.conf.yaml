@@ -17,6 +17,10 @@
     ~/.config/systemd/user/ssh-agent.service:
         path: systemd/ssh-agent.service
         create: true
+    ~/.i3: ~
+    ~/.alacritty.yml: ~
+    ~/.config/rofi: ~
+    ~/.config/picom.conf: ~
 
 - shell:
     - [git submodule update --init --recursive, Installing submodules]
