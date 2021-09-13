@@ -21,6 +21,7 @@
     ~/.alacritty.yml: ~
     ~/.config/rofi: ~
     ~/.config/picom.conf: ~
+    ~/.config/polybar: ~
 
 - shell:
     - [git submodule update --init --recursive, Installing submodules]
