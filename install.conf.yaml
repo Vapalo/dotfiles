@@ -22,6 +22,7 @@
     ~/.config/rofi: ~
     ~/.config/picom.conf: ~
     ~/.config/polybar: ~
+    ~/.config/dunst: ~
 
 - shell:
     - [git submodule update --init --recursive, Installing submodules]
