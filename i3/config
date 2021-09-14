@@ -130,8 +130,8 @@ assign [class="^Brave-browser$"] $ws2
 assign [class="^discord"] $ws9
 
 # Assign floating for specific applications
-
 for_window [class="Thunar"] floating enable
+for_window [class="Nitrogen"] floating enable sticky enable border normal
 
 # switch to workspace
 bindsym $mod+1 workspace number $ws1
@@ -219,7 +219,7 @@ bindsym $mod+r mode "resize"
 
 
 # Autostart applications
-exec_always --no-startup-id picom -b --config $HOME/.config/picom.conf
+exec_always --no-startup-id nitrogen --restore && sleep 1 && picom -b --config $HOME/.config/picom.conf
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 exec_always --no-startup-id autotiling
 
