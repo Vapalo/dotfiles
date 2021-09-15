@@ -47,6 +47,7 @@ bindsym $mod+Return exec --no-startup-id alacritty
 # Start applications
 bindsym $mod+b exec brave
 bindsym Print exec --no-startup-id spectacle -r
+bindsym $mod+Print exec --no-startup-id peek
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -219,6 +220,7 @@ bindsym $mod+r mode "resize"
 
 
 # Autostart applications
+exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 exec_always --no-startup-id nitrogen --restore && sleep 1 && picom -b --config $HOME/.config/picom.conf
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 exec_always --no-startup-id autotiling
