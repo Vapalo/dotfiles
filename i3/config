@@ -44,10 +44,11 @@ floating_modifier $mod
 # start a terminal
 bindsym $mod+Return exec --no-startup-id alacritty
 
-# Start applications
+# Custom keybindings
 bindsym $mod+b exec brave
 bindsym Print exec --no-startup-id spectacle -r
 bindsym $mod+Print exec --no-startup-id peek
+bindsym $mod+Control+l exec ~/.i3/scripts/lock.sh
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -126,9 +127,15 @@ set $ws8 "8"
 set $ws9 "9"
 set $ws10 "10"
 
+workspace $ws1 output DP-5
+workspace $ws2 output HDMI-0
+workspace $ws3 output HDMI-0
+workspace $ws4 output DP-5
+
 # Assign applications to workspaces on startup
 assign [class="^Brave-browser$"] $ws2
 assign [class="^discord"] $ws9
+assign [class="Thunderbird$"]$ws3
 
 # Assign floating for specific applications
 for_window [class="Thunar"] floating enable
