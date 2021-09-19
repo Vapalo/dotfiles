@@ -11,3 +11,5 @@ if ! [ -x "$(command -v ruby)" ]; then
 else
   PATH="$PATH:$(ruby -e 'print Gem.user_dir')/bin"
 fi
+
+export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.socket"

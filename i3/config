@@ -134,7 +134,7 @@ workspace $ws4 output DP-5
 
 # Assign applications to workspaces on startup
 assign [class="^Brave-browser$"] $ws2
-assign [class="^discord"] $ws9
+assign [class="^discord"] $ws10
 assign [class="Thunderbird$"]$ws3
 
 # Assign floating for specific applications
