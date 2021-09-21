@@ -163,7 +163,10 @@ vmap <Leader>a: :Tabularize /:\zs<CR>
 nmap <Leader>a<bar> :Tabularize /\|<CR>
 vmap <Leader>a<bar> :Tabularize /\|<CR>
 " }}}
-
+" Map fzf to crtl+f inside vim {{{
+vnoremap <silent> <C-f> :Files<CR>
+nnoremap <silent> <C-f> :Files<CR>
+" }}}
 " Live preview os substitution results {{{
 "
 if (has('nvim'))
