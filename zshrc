@@ -81,6 +81,8 @@ plugins=(
 git
 tmux
 colored-man-pages
+docker
+docker-compose
 )
 
 source $ZSH/oh-my-zsh.sh
