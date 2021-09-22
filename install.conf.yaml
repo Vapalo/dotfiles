@@ -23,6 +23,7 @@
     ~/.config/picom.conf: ~
     ~/.config/polybar: ~
     ~/.config/dunst: ~
+    ~/.config/kitty: ~
 
 - shell:
     - [git submodule update --init --recursive, Installing submodules]
