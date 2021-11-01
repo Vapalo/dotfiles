@@ -131,6 +131,7 @@ workspace $ws1 output DP-4
 workspace $ws2 output DP-0
 workspace $ws3 output DP-0
 workspace $ws4 output DP-3
+workspace $ws5 output DP-4
 workspace $ws6 output HDMI-0
 
 # Assign applications to workspaces on startup
@@ -235,6 +236,7 @@ exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 exec_always --no-startup-id nitrogen --restore && sleep 1 && picom -b --config $HOME/.config/picom.conf
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 exec_always --no-startup-id autotiling
+exec --no-startup-id $HOME/.i3/scripts/layout.sh
 
 
 # Settings for gaps
