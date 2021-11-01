@@ -133,11 +133,13 @@ workspace $ws3 output DP-0
 workspace $ws4 output DP-3
 workspace $ws5 output DP-4
 workspace $ws6 output HDMI-0
+workspace $ws9 output DP-3
 
 # Assign applications to workspaces on startup
 assign [class="^Brave-browser$"] $ws2
 assign [class="^discord"] $ws10
 assign [class="Thunderbird$"]$ws3
+for_window [class="Spotify"] move container to workspace $ws9
 
 # Assign floating for specific applications
 for_window [class="Thunar"] floating enable
