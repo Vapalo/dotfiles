@@ -147,6 +147,7 @@ for_window [class="Nitrogen"] floating enable sticky enable border normal
 for_window [class="zoom"] floating enable
 for_window [class="zoom" title="Settings"] floating enable, move position center
 for_window [class="zoom" title="Zoom - Licensed Account"] floating enable, move position center
+for_window [class="RabbitVCS"] floating enable
 
 # Steam configs
 for_window [class="^Steam$" title="^Friends$"] floating enable
