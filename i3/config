@@ -49,6 +49,7 @@ bindsym $mod+b exec brave
 bindsym Print exec --no-startup-id spectacle -r
 bindsym $mod+Print exec --no-startup-id peek
 bindsym $mod+Control+l exec ~/.i3/scripts/lock.sh
+bindsym Control+space exec dunstctl close-all
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -127,13 +128,21 @@ set $ws8 "8"
 set $ws9 "9"
 set $ws10 "10"
 
-workspace $ws1 output DP-4
+# Main layout
+#workspace $ws1 output DP-4
+#workspace $ws2 output DP-0
+#workspace $ws3 output DP-0
+#workspace $ws4 output DP-3
+#workspace $ws5 output DP-4
+#workspace $ws6 output HDMI-0
+#workspace $ws9 output DP-3
+
+# Temporary layout
+workspace $ws1 output HDMI-0
 workspace $ws2 output DP-0
 workspace $ws3 output DP-0
-workspace $ws4 output DP-3
-workspace $ws5 output DP-4
-workspace $ws6 output HDMI-0
-workspace $ws9 output DP-3
+workspace $ws4 output HDMI-0
+workspace $ws7 output DP-0
 
 # Assign applications to workspaces on startup
 assign [class="^Brave-browser$"] $ws2

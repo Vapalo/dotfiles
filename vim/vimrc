@@ -32,9 +32,6 @@ Plug 'airblade/vim-gitgutter'
 " Adds icons for Airline's statusline and tabline
 Plug 'ryanoasis/vim-devicons'
 
-" Git plugin
-Plug 'tpope/vim-fugitive'
-
 " Configure puppet real time linting
 Plug 'dense-analysis/ale'
 
