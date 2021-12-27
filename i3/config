@@ -45,7 +45,7 @@ floating_modifier $mod
 bindsym $mod+Return exec --no-startup-id kitty
 
 # Custom keybindings
-bindsym $mod+b exec brave
+bindsym $mod+b exec brave-browser-beta
 bindsym Print exec --no-startup-id spectacle -r
 bindsym $mod+Print exec --no-startup-id peek
 bindsym $mod+Control+l exec ~/.i3/scripts/lock.sh
@@ -145,7 +145,7 @@ workspace $ws4 output HDMI-0
 workspace $ws7 output DP-0
 
 # Assign applications to workspaces on startup
-assign [class="^Brave-browser$"] $ws2
+assign [class="^Brave-browser-beta$"] $ws2
 assign [class="^discord"] $ws10
 assign [class="Thunderbird$"]$ws3
 for_window [class="Spotify"] move container to workspace $ws9
