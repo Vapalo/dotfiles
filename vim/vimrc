@@ -40,6 +40,38 @@ Plug 'godlygeek/tabular'
 
 Plug 'morhetz/gruvbox'
 
+" Coc
+
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+
+let g:coc_global_extensions = [
+  \'coc-css',
+  \'coc-emmet',
+  \'coc-eslint',
+  \'coc-git',
+  \'coc-html',
+  \'coc-json',
+  \'coc-markdownlint',
+  \'coc-neosnippet',
+  \'coc-phpls',
+  \'coc-prettier',
+  \'coc-snippets',
+  \'coc-tslint-plugin',
+  \'coc-tsserver',
+  \'coc-ultisnips',
+  \'coc-yaml',
+  \'coc-yank',
+  \'coc-explorer',
+  \'coc-go',
+  \'coc-pyright',
+\]
+
+" Fixes compatibility issues with ansible-vim and coc-yaml
+let g:coc_filetype_map = {
+ \ 'yaml.ansible': 'yaml',
+ \ }
+
+
 call plug#end()
 
 " }}}
@@ -172,4 +204,32 @@ if (has('nvim'))
   set inccommand=nosplit
 endif
 " }}}
+" }}}
+
+" Coc settings {{{
+" Remap keys for gotos
+nmap <silent> gd <Plug>(coc-definition)
+"nmap <silent> gy <Plug>(coc-type-definition)
+"nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)
+
+" Use <c-space> to trigger completion in insert mode
+inoremap <silent><expr> <c-space> coc#refresh()
+
+" Use VScode like tabs for snippets. Tab jumps to next snippet argument thingy
+inoremap <silent><expr> <TAB>
+      \ pumvisible() ? coc#_select_confirm() :
+      \ coc#expandableOrJumpable() ? "\<C-r>=coc#rpc#request('doKeymap', ['snippets-expand-jump',''])\<CR>" :
+      \ <SID>check_back_space() ? "\<TAB>" :
+      \ coc#refresh()
+function! s:check_back_space() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~# '\s'
+endfunction
+let g:coc_snippet_next = '<tab>'
+
+" Add keybind for opening coc-explorer
+nnoremap <leader>e :CocCommand explorer<CR>
+
+"
 " }}}
