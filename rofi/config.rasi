@@ -2,6 +2,6 @@ configuration {
 	modi: "combi,window,run,ssh,";
 	font: "NotoSans Nerd Font 10";
 	terminal: "/usr/bin/alacritty";
-	combi-modi: "window,run,ssh,";
+	combi-modi: "window,run,ssh,emoji";
 }
 @theme "~/.config/rofi/themes/gruvbox/gruvbox-dark.rasi"
