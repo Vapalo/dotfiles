@@ -158,6 +158,13 @@ autocmd QuitPre * if empty(&bt) | lclose | endif
 " }}}
 " Floating stuff {{{
 
+autocmd! FileType fzf
+autocmd  FileType fzf set laststatus=0 noshowmode noruler
+  \| autocmd BufLeave <buffer> set laststatus=2 showmode ruler
+
+let g:fzf_layout = { 'window': 'call OpenFloatingWin()' }
+
+
 function! OpenFloatingWin()
   let height = &lines - 3
   let width = float2nr(&columns - (&columns * 2 / 10))
