@@ -40,6 +40,10 @@ Plug 'godlygeek/tabular'
 
 Plug 'morhetz/gruvbox'
 
+"Git plugin
+
+Plug 'tpope/vim-fugitive'
+
 " Coc
 
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
@@ -103,8 +107,9 @@ if exists('&t_8f') && exists('&t_8b')
 endif
 
 " Color scheme / theme
-colorscheme gruvbox
-set background=dark
+colorscheme tender
+"set background=dark
+let g:airline_theme = 'tender'
 
 " }}}
 " Other settings {{{
