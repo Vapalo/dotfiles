@@ -1,0 +1,10 @@
+{
+	"markdownlint.config": {
+		"default": true,
+		"MD007": false,
+		"MD013": false,
+		"MD024": false,
+		"line-length": false
+	},
+	"coc.preferences.formatOnSaveFiletypes": ["markdown"]
+}

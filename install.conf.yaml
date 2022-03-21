@@ -9,8 +9,8 @@
     ~/.zshrc: zshrc
     ~/.oh-my-zsh: .oh-my-zsh
     ~/powerlevel10k: powerlevel10k
-    ~/.config/nvim/init.vim:
-        path: nvim/init.vim
+    ~/.config/nvim:
+        path: nvim
         create: true
     ~/.fzf: ~
     ~/.fzf-tab-completion: 'fzf-tab-completion/'
