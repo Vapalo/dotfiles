@@ -132,11 +132,7 @@ alias vimconfig="vim ~/.vim/vimrc"
 # Use neovim instead of vim if installed
 if which nvim &> /dev/null; then
   alias vim=nvim
-  export EDITOR=/bin/nvim
-fi
-
-if [ $USER = "toni" ]; then
-  alias ssh='TERM=xterm-256color ssh'
+  export EDITOR=/usr/local/bin/nvim
 fi
 
 # Powerlevel10k prompt
@@ -145,30 +141,4 @@ source ~/powerlevel10k/powerlevel10k.zsh-theme
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
-# Ruby environment configuration
-
-if [ $USER = "tvapalo" ]; then
-
-  export PATH="$HOME/.rbenv/bin:$PATH"
-  eval export PATH="/home/tvapalo/.rbenv/shims:${PATH}"
-  export RBENV_SHELL=zsh
-  source $HOME/.rbenv/libexec/../completions/rbenv.zsh
-  command rbenv rehash 2>/dev/null
-  rbenv() {
-    local command
-    command="${1:-}"
-    if [ "$#" -gt 0 ]; then
-      shift
-    fi
-  case "$command" in
-  rehash|shell)
-    eval "$(rbenv "sh-$command" "$@")";;
-  *)
-    command rbenv "$command" "$@";;
-  esac
-}
-fi
-
-# Highlite plugin source
-source ~/highlite/highlite.plugin.zsh
-
+alias tf=/usr/local/bin/terraform
